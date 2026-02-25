@@ -84,7 +84,6 @@ public class Student {
 		return result;
 	}
 	
-	
 	// 6. Parejas pec nepieciesamibas
 
 }
