@@ -29,7 +29,7 @@ public class Student {
 	}
 	
 	// 3. set funkcijas
-	public void setTudId() {
+	public void setStudId() {
 		studId = counter;
 		counter++;
 	}
@@ -59,16 +59,29 @@ public class Student {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	// 4.1. bezargumenta konstruktors
+	public Student() {
+		setStudId();
+		setName("Janis");
+		setSurname("Berzins-Kalnins");
+		setPersonCode("121212-12345");
+	}
+	
 	// 4.2. argumenta konstruktors
+	
+	
+	public Student(String inputName, String inputSurname, String inputPersonCode) {
+		setStudId();
+		setName(inputName);
+		setSurname(inputSurname);
+		setPersonCode(inputPersonCode);
+	}
+	
+	
 	// 5. toString funkcija
+	
+	
+	
 	// 6. Parejas pec nepieciesamibas
 
 }
