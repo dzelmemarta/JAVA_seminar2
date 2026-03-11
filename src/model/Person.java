@@ -48,5 +48,29 @@ public class Person {
 			personCode = "Unknown";
 		}
 	}
+	
+	// 4. no arg contr
+	
+	public Person() {
+		setName("Anna");
+		setSurname("Liepa");
+		setPersonCode("212121-21212");
+	}
+	
+	// 5. args constr
+	
+	public Person(String inpuName, String inputSurname, String inputPersCode) {
+		setName(inpuName);
+		setSurname(inputSurname);
+		setPersonCode(inputPersCode);
+	}
+	
+	// String
+	
+	@Override	
+	public String toString() {
+		String result = name + " " + surname + "(" + personCode + ")";
+		return result;
+	}
 
 }
