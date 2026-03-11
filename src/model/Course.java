@@ -82,6 +82,13 @@ public class Course {
 	}
 	
 	// 5.toString
+	
+	@Override	
+	public String toString() {
+		String result = courseId + ": " + title + " " + creditPoints + " " + professor;
+		return result;
+	}
+	
 	// 7. papildus
 
 }
