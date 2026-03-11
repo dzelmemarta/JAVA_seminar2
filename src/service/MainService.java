@@ -33,8 +33,6 @@ public class MainService {
 			System.out.println(tempS);
 		}
 		
-		
-		
 		System.out.println("---------------- PROFS -----------------");
 		
 		Professor prof1 = new Professor();
@@ -60,6 +58,35 @@ public class MainService {
 		allGrades.addAll(Arrays.asList(grade1, grade2));
 		System.out.println(allGrades);
 		
+	}
+	
+	// CRUD - create, retrieve, update, delete
+	// Create
+	// Parbauda lai nav viens un tas pats vairakas reizes students
+	public static void createStudent(String inputName, String inputSurname, String inputPersCode) throws Exception{
+		// TODO: parbaudit ienakosos parametrus
+		
+		for(Student tempS : allStudents) {
+			if(tempS.getPersonCode().equals(inputPersCode)) {
+				throw new Exception("Tads students jau eksiste");
+			}
+		}
+		
+		Student newStudent = new Student(inputName, inputSurname, inputPersCode);
+		allStudents.add(newStudent);
+	}
+	
+	// Retrieve by id
+	public static Student getStudentById(long id) throws Exception{
+		if(id < 0) {
+			throw new Exception("id nevar but negativs");
+		}
+		for(Student tempS : allStudents) {
+			if(tempS.getStudId() == id) {
+				return tempS;
+			}
+		}
+		throw new Exception("Students ar id: " + id + " neeksiste");
 	}
 
 }

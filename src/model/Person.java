@@ -20,7 +20,7 @@ public class Person {
 		return surname;
 	}
 
-	public String personCode() {
+	public String getPersonCode() {
 		return personCode;
 	}
 
