@@ -1,6 +1,7 @@
 package service;
 
 import model.Course;
+import model.Grade;
 import model.Professor;
 import model.Student;
 import model.enums.ProfDegree;
@@ -39,9 +40,17 @@ public class MainService {
 		Course course1 = new Course();
 		System.out.println(course1);
 		
-		Course course2 = new Course("IT", (byte)4, prof2);
+		Course course2 = new Course("Algoritmu teorija", (byte)4, prof2);
 		System.out.println(course2);
 		
+		
+		System.out.println("---------------- GRADES -----------------");
+		
+		Grade grade1 = new Grade();
+		System.out.println(grade1);
+		
+		Grade grade2 = new Grade(7, stud2, course1);
+		System.out.println(grade2);
 	}
 
 }
