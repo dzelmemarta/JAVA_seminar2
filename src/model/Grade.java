@@ -82,7 +82,7 @@ public class Grade {
 	
 	@Override	
 	public String toString() {
-		String result = gradeId + ": " + gradeValue + " " + student.getName() + " " + student.getSurname() + " " + course.getTitle();
+		String result = gradeId + ": " + gradeValue + " " + student.getName().charAt(0) + ". " + student.getSurname() + " " + course.getTitle();
 		return result;
 	}
 	

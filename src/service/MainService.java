@@ -49,7 +49,7 @@ public class MainService {
 		Grade grade1 = new Grade();
 		System.out.println(grade1);
 		
-		Grade grade2 = new Grade(7, stud2, course1);
+		Grade grade2 = new Grade(7, stud2, course2);
 		System.out.println(grade2);
 	}
 
