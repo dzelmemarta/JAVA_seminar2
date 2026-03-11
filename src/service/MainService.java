@@ -1,10 +1,15 @@
 package service;
 
+import model.Professor;
 import model.Student;
+import model.enums.ProfDegree;
 
 public class MainService {
 
 	public static void main(String[] args) {
+		
+		System.out.println("---------------- STUDENTS -----------------");
+		
 		// datu tips 	nosaukums 	= 	new konstrutors:
 		Student stud1 = new Student();
 		System.out.println(stud1);
@@ -12,6 +17,19 @@ public class MainService {
 		System.out.println(stud2);
 		Student stud3 = new Student("e472", "Se2dna", null);
 		System.out.println(stud3);
+		
+		
+		
+		System.out.println("---------------- PROFS -----------------");
+		
+		Professor prof1 = new Professor();
+		System.out.println(prof1);
+		
+		Professor prof2 = new Professor("Vairis", "Caune", ProfDegree.phd, "123456-12345");
+		System.out.println(prof2);
+		
+		Professor prof3 = new Professor("Galina", "Hilkevica", ProfDegree.phd, "654321-12345");
+		System.out.println(prof3);
 	}
 
 }
