@@ -63,9 +63,24 @@ public class Course {
 		}
 	}
 	
-	
 	// 4. b4z argumenta kontruktors
+	
+	public Course() {
+		setCourseId();
+		setTitle("JAVA");
+		setCreditPoints((byte)6);
+		setProfessor(new Professor());
+	}
+	
 	// 5. argumenta kontruktors
+	
+	public Course(String inputTitle, byte inputCreditPoints, Professor inputProfessor) {
+		setCourseId();
+		setTitle(inputTitle);
+		setCreditPoints(inputCreditPoints);
+		setProfessor(inputProfessor);
+	}
+	
 	// 5.toString
 	// 7. papildus
 
