@@ -1,12 +1,9 @@
 package model;
 
-public class Student {
+public class Student extends Person{
 
 	// 1. mainigie
 	private long studId;
-	private String name;
-	private String surname;
-	private String personCode;
 	
 	// Paligmainigais kam nevajag ne set, ne get
 	private static long counter = 0;
@@ -16,65 +13,25 @@ public class Student {
 		return studId;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public String getSurname() {
-		return surname;
-	}
-	
-	public String personCode() {
-		return personCode;
-	}
-	
 	// 3. set funkcijas
 	public void setStudId() {
 		studId = counter;
 		counter++;
 	}
 	
-	public void setName(String inputName) {
-		if((inputName != null) && (inputName.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))) {
-			name = inputName;
-		}else {
-			name = "Unknown";
-		}
-	}
-	
-	public void setSurname(String inputSurname) {
-		if((inputSurname != null) && (inputSurname.matches("[A-Z]{1}[a-z]{2,15}([-]{1}[A-Z]{1}[a-z]{2,15})?"))) {
-			surname = inputSurname;
-		}else {
-			surname = "Unknown";
-		}
-	}
-	
-	public void setPersonCode(String inputPersonCode) {
-		if((inputPersonCode != null) && inputPersonCode.matches("[0-9]{6}[-][0-9]{5}")) {
-			personCode = inputPersonCode;
-		}else {
-			personCode = "Unknown";
-		}
-	}
-	
-	
 	// 4.1. bezargumenta konstruktors
 	public Student() {
+		super(); // Izsauksies automatiski Person konstruktors; jabut pasam pirmajam ko izsauc
 		setStudId();
-		setName("Janis");
-		setSurname("Berzins-Kalnins");
-		setPersonCode("121212-12345");
 	}
 	
 	// 4.2. argumenta konstruktors
 	
 	
 	public Student(String inputName, String inputSurname, String inputPersonCode) {
+		// izsauc person konstruktoru
+		super(inputName, inputSurname, inputPersonCode);
 		setStudId();
-		setName(inputName);
-		setSurname(inputSurname);
-		setPersonCode(inputPersonCode);
 	}
 	
 	// 5. toString funkcija

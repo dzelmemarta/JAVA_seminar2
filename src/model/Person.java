@@ -3,9 +3,10 @@ package model;
 public class Person {
 
 	// 1. mainigie
-	private String name;
-	private String surname;
-	private String personCode;
+	// protected - lai var izmantot mantosana
+	protected String name;
+	protected String surname;
+	protected String personCode;
 
 
 	// 2. get funkcijas
