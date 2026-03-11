@@ -1,5 +1,6 @@
 package service;
 
+import model.Course;
 import model.Professor;
 import model.Student;
 import model.enums.ProfDegree;
@@ -30,6 +31,17 @@ public class MainService {
 		
 		Professor prof3 = new Professor("Galina", "Hilkevica", ProfDegree.phd, "654321-12345");
 		System.out.println(prof3);
+		
+		
+		
+		System.out.println("---------------- COURSES -----------------");
+		
+		Course course1 = new Course();
+		System.out.println(course1);
+		
+		Course course2 = new Course("IT", (byte)4, prof2);
+		System.out.println(course2);
+		
 	}
 
 }

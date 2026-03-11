@@ -35,7 +35,7 @@ public class Course {
 	}
 	
 	public void setTitle(String inputTitle) {
-		if((inputTitle != null) && inputTitle.matches("[A-Z]{1}[A-Za-z0-9]{1, 40}"))
+		if((inputTitle != null) && inputTitle.matches("[A-Z]{1}[A-Za-z0-9]{1,40}"))
 		{
 			title = inputTitle;
 		}else 
@@ -85,7 +85,7 @@ public class Course {
 	
 	@Override	
 	public String toString() {
-		String result = courseId + ": " + title + " " + creditPoints + " " + professor;
+		String result = courseId + ": " + title + "(" + creditPoints + "), " + professor.getName().charAt(0) + ". " + professor.getSurname();
 		return result;
 	}
 	
