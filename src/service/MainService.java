@@ -88,5 +88,40 @@ public class MainService {
 		}
 		throw new Exception("Students ar id: " + id + " neeksiste");
 	}
+	
+	
+	// U - update
+	public static Student updateById(int id, String inputName, String inputSurname) throws Exception{
+		Student studentForUpdating = getStudentById(id);
+		
+		// TODO: parbaudit inputName un inputSurname
+		
+		if(!studentForUpdating.getName().equals(inputName)) {
+			studentForUpdating.setName(inputName);
+		}
+		if(!studentForUpdating.getSurname().equals(inputSurname)) {
+			studentForUpdating.setSurname(inputSurname);
+		}
+		return studentForUpdating;
+	}
+	
+	// D - delete
+	
+	public static void deleteById(int id) throws Exception {
+		
+		if(id < 0) {
+			throw new Exception("Id nevar but negativs");
+		}
+		
+		Student studentToDelete = getStudentById(id);
+		
+		for(Student tempS : allStudents) {
+			if(tempS.getStudId() == id) {
+				allStudents.remove(studentToDelete);
+			}else {
+				throw new Exception("Student by this ID doesnt exist");
+			}
+		}
+	}
 
 }
