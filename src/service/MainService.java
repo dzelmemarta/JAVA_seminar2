@@ -58,6 +58,30 @@ public class MainService {
 		allGrades.addAll(Arrays.asList(grade1, grade2));
 		System.out.println(allGrades);
 		
+		System.out.println("-------CRUD TESTING-------------");
+		try
+		{
+			createStudent("Janis", "Berzins", "090512-23456");
+			System.out.println(allStudents);
+			System.out.println(getStudentById(4));//Janis
+			System.out.println(updateById(1, "Rendijs", "Jaukais"));//Nomainits Rendija uzvards
+			System.out.println(allStudents);
+			deleteById(2);//Tiek izdzest unknown students
+			System.out.println(allStudents);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println("-------FILTER TESTING-------------");
+		try
+		{
+			System.out.println(filterAllProfessorsWithSpecificDegree(ProfDegree.phd));
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 	
 	// CRUD - create, retrieve, update, delete
@@ -118,10 +142,55 @@ public class MainService {
 		for(Student tempS : allStudents) {
 			if(tempS.getStudId() == id) {
 				allStudents.remove(studentToDelete);
-			}else {
-				throw new Exception("Student by this ID doesnt exist");
+				return;
 			}
 		}
+		
+		throw new Exception("Student by this ID doesnt exist");
+		
 	}
+	
+	//izfiltret un atgreizt visus profesorus, kuru degree ir master
+	public static ArrayList<Professor> filterAllProfessorsWithSpecificDegree(ProfDegree inputDegree) throws Exception
+	{
+		if(inputDegree == null) {
+			throw new Exception("Neeksistejoss grads");
+		}
+		ArrayList<Professor> result = new ArrayList<Professor>();
+		for(Professor tempP: allProfessors) {
+			if(tempP.getDegree().equals(inputDegree)) {
+				result.add(tempP);
+			}
+		}
+
+		if(result.isEmpty()) {
+			throw new Exception("Sistema nav profesori ar " + inputDegree + " gradu");
+		}
+
+		return result;
+
+	}
+	
+	public static float calculateAVGradeForStudent(String personCode) throws Exception{
+		if(personCode == null || personCode.isEmpty() || !personCode.matches("[0-9]{6}[-]{1}[0-9]{5}")) {
+			throw new Exception("Invalid input");
+		}
+		int count = 0;
+		float sum = 0;
+		for(Grade tempG : allGrades) {
+			if(tempG.getStudent().getPersonCode().equals(personCode)) {
+				count++;
+				sum = sum + tempG.getGradeValue();
+			}
+		}
+		
+		if(count == 0) {
+			throw new Exception("Studentam ar personas kodu " + personCode + " nav atzimju -> nevar aprekinat videjo");
+		}
+		
+		return (sum/count);
+	}
+	
+	
 
 }
