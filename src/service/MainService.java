@@ -77,6 +77,7 @@ public class MainService {
 		try
 		{
 			System.out.println(filterAllProfessorsWithSpecificDegree(ProfDegree.phd));
+			System.out.println("Rendija videja atzime ir " + calculateAVGradeForStudent("123456-12345"));
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
